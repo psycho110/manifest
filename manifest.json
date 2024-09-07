@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Simple Extension",
+  "version": "1.0",
+  "description": "A simplified version of the extension.",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon-16.png",
+      "48": "images/icon-48.png",
+      "128": "images/icon-128.png"
+    }
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "icons": {
+    "16": "images/icon-16.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "contentscript.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "inpage.js",
+        "assets/badges/icon.png"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
